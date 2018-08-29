@@ -1,0 +1,12 @@
+/**area.wxss**/
+page {
+    background: #efeff4;
+}
+
+page, .page, .page__bd {
+    height: 100%;
+}
+
+.weui-cells {
+    font-size:14px;
+}

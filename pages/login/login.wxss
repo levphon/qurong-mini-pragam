@@ -1,0 +1,38 @@
+/**index.wxss**/
+
+.wrapper {
+    padding: 10px 0px;
+}
+
+/**logo**/
+
+.logoBox {
+    text-align: center;
+    padding-top:30px;
+}
+
+.imgLogo {
+    width: 60%;
+}
+
+.loginBox {
+    margin: 3em 0;
+}
+
+.indexSection {
+    position: relative;
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    padding: 15px;
+    margin-top: -1px;
+}
+
+.indexSection .imgIcon {
+    width: 1em;
+    margin: 0.2em 0.6em 0 0;
+}
+
+.indexSection .wxIpt {
+    width: 100%;
+}

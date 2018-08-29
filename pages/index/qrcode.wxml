@@ -1,0 +1,108 @@
+<!--pages/index/qrcode.wxml-->
+<view class='page'>
+
+    <view class="wrapper">
+        <view class="pane">
+            <image src="{{qrcodeImg}}" mode='widthFix' class="qrImg"></image>
+
+            <!--免息分期额度 开始-->
+            <view class="weui-cell weui-cell_input mt_30">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">{{proInfo.serviceType == 25?'合同总额':'免息分期额度'}}</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" value="{{proInfo.creditAmount}}" disabled />
+                </view>
+                <view class="weui-cell__ft">元</view>
+            </view>
+            <!--免息分期额度 end-->
+
+            <!--客户融资额 开始-->
+            <view class="weui-cell weui-cell_input" wx:if="{{proInfo.serviceType == 25}}">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">客户融资额</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" value="{{proInfo.derivativeCost}}" disabled />
+                </view>
+                <view class="weui-cell__ft">元</view>
+            </view>
+            <!--客户融资额 end-->
+
+            <!--分期期数 开始-->
+            <view class="weui-cell weui-cell_input" wx:if="{{proInfo.serviceType == 25}}">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">分期期数</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" value="{{proInfo.creditPeriod}}" disabled />
+                </view>
+                <view class="weui-cell__ft">期</view>
+            </view>
+            <!--分期期数 end-->
+            <!--提车衍生费用 开始-->
+            <view class="weui-cell weui-cell_input" wx:if="{{proInfo.serviceType != 25}}">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">提车衍生费用</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" value="{{proInfo.derivativeCost}}" disabled />
+                </view>
+                <view class="weui-cell__ft">元</view>
+            </view>
+            <!--提车衍生费用 end-->
+
+            <!--驾宝无忧保障 开始-->
+            <view class="weui-cell weui-cell_input" wx:if="{{proInfo.serviceType == 10}}">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">驾宝无忧保障</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" value="{{proInfo.glCareFree}}" disabled />
+                </view>
+                <view class="weui-cell__ft">元</view>
+            </view>
+            <!--驾宝无忧保障 end-->
+
+            <!--智能车联网服务费 开始-->
+            <view class="weui-cell weui-cell_input" wx:if="{{proInfo.serviceType == 18}}">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">智能车联网服务费</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" value="{{proInfo.glCareFree}}" disabled />
+                </view>
+                <view class="weui-cell__ft">元</view>
+            </view>
+            <!--智能车联网服务费 end-->
+
+            <view wx:if="{{proInfo.serviceType == 25}}">
+                <!--每期还款金额 开始-->
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">每期还款金额</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" type="text" value="{{proInfo.installments}}" disabled />
+                    </view>
+                    <view class="weui-cell__ft">元</view>
+                </view>
+                <!--每期还款金额 end-->
+            </view>
+            <view wx:else>
+                <!--每期还款 开始-->
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">每期还款</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" type="text" value="{{proInfo.installments}}" disabled />
+                    </view>
+                    <view class="weui-cell__ft">元</view>
+                </view>
+                <!--每期还款 end-->
+            </view>
+        </view>
+    </view>
+
+</view>

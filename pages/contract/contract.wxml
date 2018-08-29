@@ -1,0 +1,100 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索</view>
+                </label>
+            </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+        </view>
+
+        <!-- 菜单展示 开始 --> <!-- wx:if="{{inputVal.length == 0}}"-->
+        <view class="">
+            <view class="page__bd">
+                <view class="weui-tab">
+                    <!-- 菜单按钮 开始-->
+                    <view class="weui-navbar">
+                        <block wx:for="{{tabs}}" wx:key="*this">
+                            <view id="{{item.id}}" class="weui-navbar__item {{activeIndex == item.id ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                                <view class="weui-navbar__title">{{item.name}}</view>
+                            </view>
+                        </block>
+                        <view class="weui-navbar__slider testSlider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);width:{{sliderLineWidth}}px;"></view>
+                    </view>
+                    <!-- 菜单按钮 end-->
+
+                    <!-- 内容展示区域 开始-->
+                    <view class="weui-tab__panel">
+                        <view class="weui-tab__content">
+
+
+                            <!-- 循环列表 开始 -->
+                            <view class="weui-panel weui-panel_access wx_panel" wx:for="{{list}}" wx:key="id">
+                                <view class="weui-panel__bd">
+                                    <view class="weui-media-box weui-media-box_text">
+                                        <view class="weui-media-box__desc">
+                                            <view class="line">合同编号：{{item.tigerSerialNum||'--'}}</view>
+                                            <view class="line">趣融分期期数：{{item.tigerCreditPeriod||'--'}}</view>
+                                            <view class="line">产品类型：{{PRODUCTTYPE[item.serviceType]||'--'}}</view>
+                                            <view class="line">提报人：{{item.operatorName||'--'}}</view>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="weui-panel__ft">
+                                    <view class="weui-cell weui-cell_access weui-cell_link">
+                                        <view class="weui-cell__bd" data-tiger-contract-id="{{item.tigerContractId}}" bindtap='lookDetai'>查看更多</view>
+                                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                                    </view>
+                                </view>
+                            </view>
+                            <!-- 循环列表 end -->
+
+                        </view>
+                    </view>
+                    <!-- 内容展示区域 end-->
+
+                </view>
+            </view>
+        </view>
+        <!-- 菜单展示 end -->
+        
+        <!-- 暂无数据 开始 -->
+        <nodata class="test" wx:if="{{!list||list.length<=0}}"></nodata>
+        <!-- 暂无数据 end -->
+
+        <!-- 搜索内容展示区域 开始-->
+        <!-- <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+            <view class="weui-tab__content">
+                <view class="weui-panel weui-panel_access wx_panel" wx:for="{{list}}" wx:key="id">
+                                <view class="weui-panel__bd">
+                                    <view class="weui-media-box weui-media-box_text">
+                                        <view class="weui-media-box__desc">
+                                            <view class="line">合同编号：{{item.tigerSerialNum}}</view>
+                                            <view class="line">趣融分期期数：{{item.tigerCreditPeriod}}</view>
+                                            <view class="line">产品类型：{{item.serviceType}}</view>
+                                            <view class="line">提报人：{{item.operatorName}}</view>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="weui-panel__ft">
+                                    <view class="weui-cell weui-cell_access weui-cell_link">
+                                        <view class="weui-cell__bd" data-tiger-contract-id="{{item.tigerContractId}}" bindtap='lookDetai'>查看更多</view>
+                                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                                    </view>
+                                </view>
+                            </view>
+            </view>
+        </view> -->
+        <!-- 搜索内容展示区域 end-->
+
+    </view>
+</view>

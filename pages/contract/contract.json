@@ -1,0 +1,6 @@
+{
+    "onReachBottomDistance": true,
+    "usingComponents": {
+        "nodata": "/component/nodata/nodata"
+    }
+}

@@ -1,0 +1,77 @@
+/**area.wxss**/
+page {
+    background: #efeff4;
+}
+
+page, .page, .page__bd {
+    height: 100%;
+}
+
+.weui-search-bar {
+    background: #fff;
+}
+
+.searchbar-result {
+    margin-top: 0;
+    font-size: 14px;
+}
+
+.searchbar-result:before {
+    display: none;
+}
+
+.weui-cell {
+    padding: 12px 15px 12px 35px;
+}
+
+.page__bd {
+    padding-bottom: 0;
+}
+
+.weui-tab__content {
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.weui-navbar {
+    background: #fff;
+}
+
+.weui-navbar .weui-navbar__slider {
+    background: #f08519;
+    height: 2px;
+}
+
+.weui-navbar .weui-bar__item_on {
+    color: #f08519;
+}
+
+.clearfix::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.wx_panel{
+    text-align:left;
+    border-left:1px solid #ddd;
+    border-right:1px solid #ddd;
+    border-radius:4px;
+    overflow:hidden;
+}
+.weui-cell{
+    padding:12px 15px;
+}
+
+.line{
+    line-height:2;
+    color:#000;
+}
+.weui-cell_link{
+    /*border-top:1rpx solid #ddd;*/
+    font-size:14px;
+    color:#10aeff;
+}
+.weui-cell:before{
+    left:0px;
+}

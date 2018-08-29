@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<view class="page">
+    <view class="wrapper" wx:if="{{isshow}}">
+        <view class="logoBox">
+            <image class="imgLogo" mode='widthFix' src="{{logoImg}}"></image>
+        </view>
+
+        <!--登录入口 开始 -->
+        <view class="loginBox">
+            <view class="indexSection">
+                <image class="imgIcon" mode='widthFix' src='{{userIcon}}'></image>
+                <input class="wxIpt" value="{{userName}}" bindinput="setUser" type='text' placeholder="用户名" />
+            </view>
+            <view class="indexSection">
+                <image class="imgIcon" mode='widthFix' src='{{lockIcon}}'></image>
+                <input class="wxIpt" type='password' bindinput="setPassword" value="{{userPassword}}" placeholder="密码" />
+            </view>
+        </view>
+        <!--登录入口 end -->
+        <view class="btn-area">
+            <button class="loginButton" type='primary' bindtap="login">登录</button>
+        </view>
+    </view>
+
+    <nodata content="规划中，敬请期待" wx:if="{{!isshow}}"></nodata>
+
+</view>

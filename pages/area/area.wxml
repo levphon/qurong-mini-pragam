@@ -1,0 +1,78 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索</view>
+                </label>
+            </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+        </view>
+
+        <!-- 菜单展示 开始 -->
+        <view class="">
+            <view class="page__bd">
+                <view class="weui-tab">
+                    <view class="weui-navbar">
+                        <block wx:for="{{tabs}}" wx:key="*this">
+                            <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                                <view class="weui-navbar__title">{{item.name}}</view>
+                            </view>
+                        </block>
+                        <view class="weui-navbar__slider testSlider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);width:{{sliderLineWidth}}px;"></view>
+                    </view>
+                    <view class="weui-tab__panel">
+                        <view class="weui-tab__content">
+                            <view class="single" id="{{item.id}}" data-status='{{item.userStatus}}' bindtap='lookDetai' wx:for="{{list}}" wx:key="id">
+                                <view class="lineView clearfix">
+                                    <text class="btn" wx:if="{{item.userStatus == 0}}">正常</text>
+                                    <text class="btn btn_red" wx:if="{{item.userStatus == 2}}">已禁用</text>
+                                    <text class="btn btn_grey" wx:if="{{item.userStatus == 3}}">待审核</text>
+                                    <text class="btn btn_red" wx:if="{{item.userStatus == 4}}">不通过</text>
+                                    <view class="status">账号状态</view>
+                                    <view class="name" wx:if="{{pageType == 101}}">{{pub.sliceStr(item.storeName)}}</view>
+                                    <view class="name" wx:if="{{pageType != 101}}">{{(item.name)}}</view>
+                                </view>
+                                <view class="lineView clearfix">
+                                    <image class="icon" mode='widthFix' src="{{iphoneIcon}}"></image>
+                                    <text class="phoneNum">{{item.userPhone}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- 菜单展示 end -->
+
+        <!-- 暂无数据 开始 -->
+        <nodata class="test" wx:if="{{!list||list.length<=0}}"></nodata>
+        <!-- 暂无数据 end -->
+
+        <!--新增区域经理 开始 -->
+        <view class="btn-area" wx:if="{{inputVal.length == 0}}">
+            <button class="loginButton" type='primary' bindtap="addAcount">{{buttonText}}</button>
+        </view>
+        <!--新增区域经理 end -->
+        
+    </view>
+</view>
+
+<wxs module="pub">
+    var sliceStr = function(str) {
+        if (str.length > 6) {
+            return str.substring(0, 6) + '...';
+        }else{
+            return str;
+        }
+    };
+    module.exports.sliceStr = sliceStr;
+</wxs>

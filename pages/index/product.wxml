@@ -1,0 +1,480 @@
+<view class="page">
+
+    <!-- 衍生付A产品 开始 -->
+    <view calss="" wx:if="{{serviceType == 10}}">
+        <view class="weui-cells weui-cells_after-title mt_30">
+            <!--车辆开票价 开始-->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">车辆开票价</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="digit" id="vehiclePrice" value="{{vehiclePrice}}" bindinput='setInputInfo' />
+                </view>
+                <view class="weui-cell__ft">元</view>
+            </view>
+            <!--车辆开票价 end-->
+
+            <!--提车首付款 开始-->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">提车首付款</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="digit" id="downPayFinance" value="{{downPayFinance}}" bindinput='setInputInfo' />
+                </view>
+                <view class="weui-cell__ft">元</view>
+            </view>
+            <!--提车首付款 end-->
+        </view>
+
+        <view class="weui-cells weui-cells_after-title mt_30">
+            <!--车辆贷款期数 开始-->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">车辆贷款期数</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker class="weui-btn" mode="selector" data-name='creditCar' range="{{creditCarMonth}}" value="{{creditCarIndex}}" bindchange="bindChangeEvent">
+                        <input class="weui-input" disabled value='{{creditCarMonth[creditCarIndex]}}' placeholder="请选择" placeholder-class="iptPlaceholder"></input>
+                    </picker>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+            <!--车辆贷款期数 end-->
+
+            <!--驾宝无忧有效期 开始-->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">驾宝无忧有效期</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" value="3" disabled />
+                </view>
+                <view class="weui-cell__ft">年</view>
+            </view>
+            <!--驾宝无忧有效期 end-->
+
+            <!--免息分期期数 开始-->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">免息分期期数</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" value="12" disabled />
+                </view>
+                <view class="weui-cell__ft">期</view>
+            </view>
+            <!--免息分期期数 end-->
+        </view>
+
+        <view class="weui-cell weui-cell_access wx_title">
+            <view class="weui-cell__bd">计算结果</view>
+        </view>
+
+        <view class="weui-cells weui-cells_after-title">
+            <!--免息分期额度 开始-->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">免息分期额度</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" value="{{proInfo.creditAmount}}" disabled />
+                </view>
+                <view class="weui-cell__ft">元</view>
+            </view>
+            <!--免息分期额度 end-->
+
+            <!--提车衍生费用 开始-->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">提车衍生费用</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" value="{{proInfo.derivativeCost}}" disabled />
+                </view>
+                <view class="weui-cell__ft">元</view>
+            </view>
+            <!--提车衍生费用 end-->
+
+            <!--驾宝无忧保障 开始-->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">驾宝无忧保障</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" value="{{proInfo.glCareFree}}" disabled />
+                </view>
+                <view class="weui-cell__ft">元</view>
+            </view>
+            <!--驾宝无忧保障 end-->
+
+            <!--每期还款 开始-->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">每期还款</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" value="{{proInfo.installments}}" disabled />
+                </view>
+                <view class="weui-cell__ft">元</view>
+            </view>
+            <!--每期还款 end-->
+
+        </view>
+    </view>
+    <!-- 衍生付A产品 end -->
+
+    <!-- 衍生付18期产品 开始 -->
+    <view calss="" wx:if="{{serviceType == 18}}">
+        <view class="weui-cells weui-cells_after-title mt_30">
+            <!--车辆开票价 开始-->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">车辆开票价</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="digit" id="vehiclePrice" value="{{vehiclePrice}}" bindinput='setInputInfo' />
+                </view>
+                <view class="weui-cell__ft">元</view>
+            </view>
+            <!--车辆开票价 end-->
+            <!--融资首付款 开始-->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">融资首付款</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="digit" id="downPayFinance" value="{{downPayFinance}}" bindinput='setInputInfo' />
+                </view>
+                <view class="weui-cell__ft">元</view>
+            </view>
+            <!--融资首付款 end-->
+        </view>
+
+        <view class="weui-cells weui-cells_after-title mt_30">
+            <!--免息分期期数 开始-->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">免息分期期数</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" value="18" disabled />
+                </view>
+                <view class="weui-cell__ft">期</view>
+            </view>
+            <!--免息分期期数 end-->
+        </view>
+
+        <view class="weui-cell weui-cell_access wx_title">
+            <view class="weui-cell__bd">计算结果</view>
+        </view>
+
+        <view class="weui-cells weui-cells_after-title">
+            <!--免息分期额度 开始-->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">免息分期额度</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" value="{{proInfo.creditAmount}}" disabled />
+                </view>
+                <view class="weui-cell__ft">元</view>
+            </view>
+            <!--免息分期额度 end-->
+
+            <!--提车衍生费用 开始-->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">提车衍生费用</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" value="{{proInfo.derivativeCost}}" disabled />
+                </view>
+                <view class="weui-cell__ft">元</view>
+            </view>
+            <!--提车衍生费用 end-->
+
+            <!--智能车联网服务费 开始-->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">智能车联网服务费</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" value="{{proInfo.glCareFree}}" disabled />
+                </view>
+                <view class="weui-cell__ft">元</view>
+            </view>
+            <!--智能车联网服务费 end-->
+
+            <!--每期还款 开始-->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">每期还款</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" value="{{proInfo.installments}}" disabled />
+                </view>
+                <view class="weui-cell__ft">元</view>
+            </view>
+            <!--每期还款 end-->
+
+        </view>
+    </view>
+    <!-- 衍生付18期产品 end -->
+
+    <!-- 趣融车产品 开始 -->
+    <view class="quRongCar" wx:if="{{serviceType == 25}}">
+
+        <!-- 内容区域 开始 -->
+        <view class="">
+            <view class="weui-tab__content">
+
+                <!-- 趣融车产品 开始 -->
+                <view class="quRongCar">
+
+                    <!--方案 开始-->
+                    <view class="wx_fangan mt_30">
+                        <text class="l_text {{plan == 0?'active':''}}" data-type='0' bindtap='bindPlanEvent' wx:if="{{false}}">常规方案</text>
+                        <text class="wx_shu" wx:if="{{false}}">丨</text>
+                        <text class="r_text {{plan == 1?'active':''}} wx_center" data-type='1' bindtap='bindPlanEvent'>工行联合贷方案</text>
+                    </view>
+                    <!--方案 end-->
+
+
+                    <view class="weui-cell weui-cell_access wx_title">
+                        <view class="weui-cell__bd">购车金融方案</view>
+                    </view>
+                    <view class="weui-cells weui-cells_after-title">
+                        <!--车辆发票金额 开始-->
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">车辆发票金额</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <input class="weui-input" type="digit" id="vehiclePrice" value="{{vehiclePrice}}" maxlength='7' bindinput='setInputInfo' placeholder='{{invoiceHolder}}' focus="{{priceFocusIsTure}}" bindfocus="inputFocusEvent" bindblur="inputBlurEvent" />
+                            </view>
+                            <view class="weui-cell__ft">元</view>
+                        </view>
+                        <!--车辆发票金额 end-->
+
+                        <!--车贷本金 开始-->
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">车贷本金</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <input class="weui-input" type="digit" id="carLoanPrincipal" value="{{carLoanPrincipal}}" maxlength='7' bindinput='setInputInfo' />
+                            </view>
+                            <view class="weui-cell__ft">元</view>
+                        </view>
+                        <!--车贷本金 end-->
+
+                        <!--车贷月供 开始-->
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">车贷月供</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <input class="weui-input" type="digit" id="monthlySupply" value="{{monthlySupply}}" bindinput='setInputInfo' />
+                            </view>
+                            <view class="weui-cell__ft">元</view>
+                        </view>
+                        <!--车贷月供 end-->
+
+                        <!--车贷期数 开始-->
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">车贷期数</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <picker class="weui-btn" mode="selector" data-name='qrCar' range="{{carMonth}}" value="{{qrCarIndex}}" bindchange="bindChangeEvent">
+                                    <input class="weui-input" disabled value='{{carMonth[qrCarIndex]}}' placeholder="请选择" placeholder-class="iptPlaceholder"></input>
+                                </picker>
+                            </view>
+                            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                            <view class="weui-cell__ft wx_picker_text">期</view>
+                        </view>
+                        <!--车贷期数 end-->
+
+                    </view>
+
+                    <view class="weui-cell weui-cell_access wx_title">
+                        <view class="weui-cell__bd">常规方案</view>
+                    </view>
+
+                    <view class="weui-cells weui-cells_after-title">
+                        <!--客户融资额 开始-->
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">客户融资额</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <slider bindchange="sliderChange" min="{{minSlider}}" max="{{maxSlider}}" step="100" value="{{proInfo.derivativeCost}}" show-value/>
+                            </view>
+                            <view class="weui-cell__ft">元</view>
+                        </view>
+                        <!--客户融资额 end-->
+                    </view>
+
+                    <view class="weui-cells weui-cells_after-title mt_30">
+                        <!--趣融车分期期数 开始-->
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">趣融车分期期数</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <picker class="weui-btn" mode="selector" data-name='qurong' range="{{qrMonth}}" value="{{qurongIndex}}" bindchange="bindChangeEvent">
+                                    <input class="weui-input" disabled value='{{qrMonth[qurongIndex]}}' placeholder="请选择" placeholder-class="iptPlaceholder"></input>
+                                </picker>
+                            </view>
+                            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                            <view class="weui-cell__ft wx_picker_text">期</view>
+                        </view>
+                        <!--趣融车分期期数 end-->
+
+                        <!--融资服务费 开始-->
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">融资服务费</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <switch checked bindchange="switchChange" class="wx_switch" />
+                            </view>
+                        </view>
+                        <!--融资服务费 end-->
+                        <!--联网隐藏式行车记录仪 开始-->
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label wx_long_label">联网隐藏式行车记录仪</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <input class="weui-input" type="digit" id="driveRecord" value="{{driveRecord}}" bindinput='setInputInfo' />
+                            </view>
+                            <view class="weui-cell__ft">元</view>
+                        </view>
+                        <!--联网隐藏式行车记录仪 end-->
+                    </view>
+
+                    <view class="weui-cell weui-cell_access wx_title">
+                        <view class="weui-cell__bd">测算结果</view>
+                    </view>
+
+                    <view class="weui-cells weui-cells_after-title">
+                        <!--客户首付 开始-->
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">客户首付</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <input class="weui-input" type="text" value="{{proInfo.financePrincipal}}" disabled />
+                            </view>
+                            <view class="weui-cell__ft">元</view>
+                        </view>
+                        <!--客户首付 end-->
+
+                        <!--月供期数 开始-->
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">月供期数</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <input class="weui-input" type="text" value="{{carMonth[qrCarIndex]}}" disabled />
+                            </view>
+                            <view class="weui-cell__ft">期</view>
+                        </view>
+                        <!--月供期数 end-->
+
+                        <!--月供 开始-->
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">月供</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <input class="weui-input" type="text" value="{{proInfo.monthlySupply}}" disabled />
+                            </view>
+                            <view class="weui-cell__ft">元</view>
+                        </view>
+                        <!--月供 end-->
+
+                        <!--综合月息 开始-->
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">综合月息</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <input class="weui-input" type="text" value="{{proInfo.comprehenMonthInterest}}" disabled />
+                            </view>
+                            <view class="weui-cell__ft">%</view>
+                        </view>
+                        <!--综合月息 end-->
+
+                    </view>
+
+                    <view class="weui-cell weui-cell_access wx_title">
+                        <view class="weui-cell__bd">加融项目</view>
+                    </view>
+                    <view class="weui-cells weui-cells_after-title">
+                        <!--驾宝无忧盗抢保障 开始-->
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">驾宝无忧盗抢保障</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <input class="weui-input" type="text" value="{{proInfo.glCareFree}}" maxlength="6" disabled />
+                            </view>
+                            <view class="weui-cell__ft">元</view>
+                        </view>
+                        <!--驾宝无忧盗抢保障 end-->
+
+                        <!--融资服务费 开始-->
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">融资服务费</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <input class="weui-input" type="text" value="{{proInfo.financeServiceFee}}" maxlength="6" disabled />
+                            </view>
+                            <view class="weui-cell__ft">元</view>
+                        </view>
+                        <!--驾宝无忧盗抢保障 end-->
+                    </view>
+
+                    <view class="weui-cell weui-cell_access wx_title">
+                        <view class="weui-cell__bd">自费项目</view>
+                    </view>
+
+                    <view class="weui-cells weui-cells_after-title mb_30">
+                        <!--联网隐藏式行车记录仪 开始-->
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label wx_long_label">联网隐藏式行车记录仪</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <input class="weui-input" type="text" value="{{proInfo.networkHiddenRecorder}}" disabled />
+                            </view>
+                            <view class="weui-cell__ft">元</view>
+                        </view>
+                        <!--联网隐藏式行车记录仪 end-->
+                    </view>
+
+                </view>
+                <!-- 趣融车产品 end -->
+            </view>
+        </view>
+        <!-- 内容区域 end -->
+
+    </view>
+
+    <!-- 趣融车产品 end -->
+
+
+
+
+    <!--生成二维码 开始 -->
+    <view class="btn-area mt_30 mb_30">
+        <button class="loginButton" type='primary' bindtap="goNextStep">{{buttonText}}</button>
+    </view>
+    <!--生成二维码 end -->
+
+</view>

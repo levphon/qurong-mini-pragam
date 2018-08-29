@@ -1,0 +1,50 @@
+/**detail.wxss**/
+page{
+    background:#efeff4;
+}
+.page{
+    margin-top:1.2em;
+}
+.report {
+    display: flex;
+    background:#fff;
+    padding:10px 0;
+    border-bottom:1px solid #ddd;
+    border-top:1px solid #ddd;
+}
+
+.report .show {
+    flex: 1;
+    text-align: center;
+}
+
+.show .txt {
+    display: block;
+    line-height: 2;
+    font-size: 0.8em;
+}
+
+.yColour {
+    color: #f08519;
+    font-size: 1em;
+    font-weight: bold;
+}
+.userInfo{
+    margin:28px 0;
+    display: flex;
+    padding:10px;
+}
+.user{
+    flex:1;
+    margin:0 0 0 10px;
+    font-size:0.8em;
+}
+.line{
+    line-height:1.8;
+}
+.userPic{
+    width:6em;
+    height:6em;
+    border:1px solid #dddddd;
+    border-radius:2px;
+}

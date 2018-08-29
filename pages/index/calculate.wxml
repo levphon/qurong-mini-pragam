@@ -1,0 +1,58 @@
+<view class="page">
+
+    <!-- 列表 开始-->
+    <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd">提报店面</view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <view class="weui-label">店面名称</view>
+            </view>
+            <view class="weui-cell__ft">{{userStore.storeName||''}}</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <view class="weui-label">店面地址</view>
+            </view>
+            <view class="weui-cell__ft">{{userStore.province||''}}{{userStore.city||''}}{{userStore.district||''}}{{userStore.address||''}}</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <view class="weui-label">提报地址</view>
+            </view>
+            <view class="weui-cell__ft">{{address||''}}</view>
+            <view class="weui-cell__ft">
+                <image src="{{location}}" mode='widthFix' class="wx_location" bindtap='getWxLocation'></image>
+            </view>
+        </view>
+    </view>
+    <!-- 列表 end-->
+
+    <!-- 列表 开始-->
+    <view class="weui-cell weui-cell_access wx_title">
+        <view class="weui-cell__bd">选择产品</view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell wx_cell">
+            <view class="weui-cell__bd">
+                <view class="weui-label">选择产品</view>
+            </view>
+
+            <view class="weui-cell__bd">
+                <picker class="weui-btn" mode="selector" data-name='product' range="{{productList}}" range-key="value" value="{{productIndex}}" bindchange="bindChangeEvent">
+                    <input class="weui-input" value='{{productList[productIndex].value}}' disabled placeholder="请选择产品" placeholder-class="iptPlaceholder"></input>
+                </picker>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+    </view>
+    <!-- 列表 end-->
+
+    <!--下一步 开始 -->
+    <view class="btn-area mt_30">
+        <button class="loginButton" type='primary' bindtap="goNextStep">{{buttonText}}</button>
+    </view>
+    <!--下一步 end -->
+
+</view>

@@ -1,0 +1,133 @@
+<view class="page">
+
+    <!-- 统计信息 开始 -->
+    <view class="report">
+        <view class="show">
+            <text class="txt yColour">{{totalCount||0}}单</text>
+            <text class="txt">本月进件</text>
+        </view>
+        <view class="show">
+            <text class="txt yColour">{{rejectCount||0}}单</text>
+            <text class="txt">本月拒单</text>
+        </view>
+        <view class="show">
+            <text class="txt yColour">{{loanCount||0}}单</text>
+            <text class="txt">本月放款</text>
+        </view>
+    </view>
+    <!-- 统计信息 end -->
+
+    <!-- 列表 开始-->
+    <view class="weui-cells weui-cells_after-title mt_30 wx_list">
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <view class="weui-label">门店名称</view>
+            </view>
+            <view class="weui-cell__ft">{{storeInfo.storeName||'--'}}</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <view class="weui-label">门店地址</view>
+            </view>
+            <view class="weui-cell__ft">{{storeInfo.province}}{{storeInfo.city}}{{storeInfo.district}}{{storeInfo.address}}</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <view class="weui-label">门店开业时间</view>
+            </view>
+            <view class="weui-cell__ft">{{storeInfo.openningTime||'--'}}</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <view class="weui-label">主营汽车品牌</view>
+            </view>
+            <view class="weui-cell__ft">{{storeInfo.brandName||'--'}}</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <view class="weui-label">月销量</view>
+            </view>
+            <view class="weui-cell__ft">{{storeInfo.monthlySales||'--'}}</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <view class="weui-label">合作金融机构1</view>
+            </view>
+            <view class="weui-cell__ft">{{storeInfo.financeName1||'--'}}</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <view class="weui-label">合作金融机构2</view>
+            </view>
+            <view class="weui-cell__ft">{{storeInfo.financeName2||'--'}}</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <view class="weui-label">合作金融机构3</view>
+            </view>
+            <view class="weui-cell__ft">{{storeInfo.financeName3||'--'}}</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <view class="weui-label">公司人数</view>
+            </view>
+            <view class="weui-cell__ft">{{storeInfo.employeeNum||'--'}}</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <view class="weui-label">门店负责人姓名</view>
+            </view>
+            <view class="weui-cell__ft">{{storeInfo.name||'--'}}</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <view class="weui-label">门店负责人身份证号</view>
+            </view>
+            <view class="weui-cell__ft">{{storeInfo.leaderCertCode||'--'}}</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <view class="weui-label">门店负责人手机号</view>
+            </view>
+            <view class="weui-cell__ft">{{storeInfo.userPhone||'--'}}</view>
+        </view>
+    </view>
+    <!-- 列表 end-->
+
+    <!-- 法人身份证 开始-->
+    <view class="weui-cells weui-cells_after-title mt_30">
+        <view class="weui-cell img_title">
+            <view class="weui-cell__bd">法人身份证</view>
+        </view>
+        <view class="img_show">
+            <image src="{{storeInfo.legalPersonCertCodeFront?storeInfo.legalPersonCertCodeFront:idCardFont}}" class="img" mode='widthFix'></image>
+        </view>
+        <view class="img_show">
+            <image src="{{storeInfo.legalPersonCertCodeReverse?storeInfo.legalPersonCertCodeReverse:idCardBack}}" class="img" mode='widthFix'></image>
+        </view>
+    </view>
+    <!-- 法人身份证 end-->
+
+    <!-- 门店照片 开始-->
+    <view class="weui-cells weui-cells_after-title mt_30">
+        <view class="weui-cell img_title">
+            <view class="weui-cell__bd">门店照片</view>
+        </view>
+        <view class="img_show">
+            <image src="{{storeInfo.storeImagePath?storeInfo.storeImagePath:storeFront}}" class="img" mode='widthFix'></image>
+        </view>
+    </view>
+    <!-- 门店照片 end-->
+
+    <!-- 营业执照 开始-->
+    <view class="weui-cells weui-cells_after-title mt_30 mb_30">
+        <view class="weui-cell img_title">
+            <view class="weui-cell__bd">营业执照</view>
+        </view>
+        <view class="img_show">
+            <image src="{{storeInfo.businessLicenseImg?storeInfo.businessLicenseImg:storeBack}}" class="img" mode='widthFix'></image>
+        </view>
+    </view>
+    <!-- 营业执照 end-->
+
+</view>

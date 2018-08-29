@@ -1,0 +1,57 @@
+/**detail.wxss**/
+
+page {
+    background: #efeff4;
+}
+
+.page {
+    margin-top: 1.2em;
+}
+
+.report {
+    display: flex;
+    background: #fff;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+
+.report .show {
+    flex: 1;
+    text-align: center;
+}
+
+.show .txt {
+    display: block;
+    line-height: 2;
+    font-size: 0.8em;
+}
+
+.yColour {
+    color: #f08519;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.weui-cells {
+    font-size: 14px;
+}
+
+.img_show {
+    border-top: 1rpx solid #ddd;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.img_show .img {
+    width: 80%;
+    border: 1px dashed #ddd;
+    border-radius: 2px;
+}
+
+.img_title {
+    background: #efeff4;
+}
+.wx_list .weui-cell{
+    padding:12px 15px;
+}

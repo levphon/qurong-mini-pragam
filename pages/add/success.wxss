@@ -1,0 +1,20 @@
+/**
+** 提交成功页面
+**/
+
+.icon-box {
+    margin-top: 50px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.icon-box__title {
+    font-size: 20px;
+}
+
+.icon-box__desc {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #888;
+}
+

@@ -1,0 +1,43 @@
+/**area.wxss**/
+
+page {
+    background: #efeff4;
+}
+page, .page, .page__bd {
+    height: 100%;
+}
+.approve_box{
+    padding:10px 0;
+    text-align:center;
+    color:#f00;
+}
+.weui-cell__ft .yzm_button {
+    background: #10aeff;
+    color: #fff;
+    margin: 0px 4px;
+    top: 3px;
+    padding: 1px 6px;
+}
+
+.userImg {
+    margin: 30px 0;
+}
+.img_upload_box{
+    position:relative;
+}
+.img_bg {
+    width: 138px;
+    border:1px dashed #ddd;
+    border-radius:2px;
+    margin:10px 0;
+}
+
+.img_close{
+    width:20px;
+    position: absolute;
+    top:8px;
+    left:128px;
+}
+.weui-cell .weui-input{
+    text-align:right;
+}

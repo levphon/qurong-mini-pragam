@@ -1,0 +1,7 @@
+<!--component/nodata.wxml-->
+<!-- 暂无数据 开始 -->
+<view class="wx_nodata">
+    <image src="{{imgsrc}}" class="wx_nodata_img" mode='widthFix'></image>
+    <text class="wx_nodata_text">{{content}}</text>
+</view>
+<!-- 暂无数据 end -->

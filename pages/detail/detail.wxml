@@ -1,0 +1,27 @@
+<view class="page">
+
+    <view class="weui-cells weui-cells_after-title userInfo">
+        <image src="{{userPic?userPic:defaultPic}}" class="userPic" mode="aspectFill"></image>
+        <view class="user">
+            <view class="line">姓名：{{userName}}</view>
+            <view class="line">账号状态：{{acountType[userStatus]}}</view>
+            <view class="line">手机号码：{{userPhone}}</view>
+            <view class="line">身份证号：{{userIdCard}}</view>
+        </view>
+    </view>
+
+    <view class="report">
+        <view class="show">
+            <text class="txt yColour">{{totalCount||0}}单</text>
+            <text class="txt">本月进件</text>
+        </view>
+        <view class="show">
+            <text class="txt yColour">{{rejectCount||0}}单</text>
+            <text class="txt">本月拒单</text>
+        </view>
+        <view class="show">
+            <text class="txt yColour">{{loanCount||0}}单</text>
+            <text class="txt">本月放款</text>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,79 @@
+<!-- 合同管理-合同详情 -->
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-cells weui-cells_after-title mt_30">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">合同编号</view>
+                <view class="weui-cell__ft">{{contractInfo.tigerSerialNum||'--'}}</view>
+            </view>
+
+            <view class="weui-cell">
+                <view class="weui-cell__bd">合同节点</view>
+                <view class="weui-cell__ft">{{contractInfo.nodeName||'--'}}</view>
+            </view>
+
+            <view class="weui-cell">
+                <view class="weui-cell__bd">产品类型</view>
+                <view class="weui-cell__ft">{{SERVICETYPE[contractInfo.serviceType]||'--'}}</view>
+            </view>
+
+        </view>
+
+        <view class="weui-cells weui-cells_after-title mt_30">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">资金方</view>
+                <view class="weui-cell__ft">{{LOANCOMPANYSWITCH[contractInfo.loanCompanySwitch]||'--'}}</view>
+            </view>
+
+            <view class="weui-cell">
+                <view class="weui-cell__bd">人行征信状态</view>
+                <view class="weui-cell__ft">{{PBOCSTATUS[contractInfo.pbocStatus]||'--'}}</view>
+            </view>
+
+            <view class="weui-cell">
+                <view class="weui-cell__bd">金融机构</view>
+                <view class="weui-cell__ft">{{contractInfo.financeName||'--'}}</view>
+            </view>
+
+            <view class="weui-cell">
+                <view class="weui-cell__bd">趣融分期期数</view>
+                <view class="weui-cell__ft">{{contractInfo.tigerCreditPeriod||'--'}}</view>
+            </view>
+
+        </view>
+
+        <view class="weui-cells weui-cells_after-title mt_30 mb_30">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">提报人</view>
+                <view class="weui-cell__ft">{{contractInfo.operatorName||'--'}}</view>
+            </view>
+
+            <view class="weui-cell">
+                <view class="weui-cell__bd">提报时间</view>
+                <view class="weui-cell__ft">{{contractInfo.createTime||'--'}}</view>
+            </view>
+
+            <view class="weui-cell">
+                <view class="weui-cell__bd">{{contractInfo.serviceType==25?'趣融免息额度':'提车衍生费用'}}</view>
+                <view class="weui-cell__ft">{{contractInfo.serviceType==25?contractInfo.creditAmount:contractInfo.derivativeCost||'--'}}</view>
+            </view>
+
+            <view class="weui-cell">
+                <view class="weui-cell__bd">所属区域经理</view>
+                <view class="weui-cell__ft">{{contractInfo.areaManagerName||'--'}}</view>
+            </view>
+
+            <view class="weui-cell">
+                <view class="weui-cell__bd">所属门店</view>
+                <view class="weui-cell__ft">{{contractInfo.storeName||'--'}}</view>
+            </view>
+
+            <view class="weui-cell">
+                <view class="weui-cell__bd">所属业务员</view>
+                <view class="weui-cell__ft">{{contractInfo.operatorName||'--'}}</view>
+            </view>
+
+        </view>
+
+    </view>
+</view>

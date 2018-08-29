@@ -1,0 +1,18 @@
+/* component/nodata.wxss */
+
+.wx_nodata {
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+}
+
+.wx_nodata .wx_nodata_img {
+    width: 50%;
+}
+.wx_nodata .wx_nodata_text{
+    display:block;
+    line-height:2;
+    color:#666;
+    margin:10px 0;
+}
+

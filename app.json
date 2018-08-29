@@ -1,0 +1,46 @@
+{
+    "pages": [
+        "pages/quotes/quotes",
+        "pages/login/login",
+        "pages/index/index",
+        "pages/area/area",
+        "pages/index/calculate",
+        "pages/index/qrcode",
+        "pages/index/product",
+        "pages/contract/contract",
+        "pages/store/addStore",
+        "pages/store/store",
+        "pages/contract/detail",
+        "pages/add/success",
+        "pages/add/add",
+        "pages/index/editPassword",
+        "pages/detail/detail",
+        "pages/logs/logs"
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#38393c",
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "登录",
+        "backgroundColor": "#585a5e",
+        "onReachBottomDistance": "30px"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/quotes/quotes",
+                "iconPath":"images/quotesIcon.png",
+                "selectedIconPath":"images/quotesIconActive.png",
+                "text": "报价器"
+            },
+            {
+                "pagePath": "pages/login/login",
+                "iconPath": "images/loginIcon.png",
+                "selectedIconPath": "images/loginIconActive.png",
+                "text": "登录"
+            }
+        ],
+        "backgroundColor": "#fff",
+        "selectedColor": "#f08519"
+    }
+}

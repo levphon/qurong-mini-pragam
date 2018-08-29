@@ -1,0 +1,99 @@
+/**area.wxss**/
+page {
+    background: #efeff4;
+}
+
+page, .page, .page__bd {
+    height: 100%;
+}
+
+.weui-search-bar {
+    background: #fff;
+}
+
+.searchbar-result {
+    margin-top: 0;
+    font-size: 14px;
+}
+
+.searchbar-result:before {
+    display: none;
+}
+
+.weui-cell {
+    padding: 12px 15px 12px 35px;
+}
+
+.page__bd {
+    padding-bottom: 0;
+}
+
+.weui-tab__content {
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.weui-navbar {
+    background: #fff;
+}
+
+.weui-navbar .weui-navbar__slider {
+    background: #f08519;
+    height: 2px;
+}
+
+.weui-navbar .weui-bar__item_on {
+    color: #f08519;
+}
+
+.clearfix::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.single {
+    text-align: left;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom:10px;
+}
+
+.single .name {
+    float: left;
+}
+
+.single .status,
+.single .btn{
+    float: right;
+}
+.single .btn{
+    margin:0 0 0 10px;
+    border:1px solid #10aeff;
+    border-radius:50px;
+    font-size:12px;
+    padding:4px 15px;
+    color:#10aeff;
+}
+.single .btn_grey{
+    border:1px solid #ccc;
+    color:#ccc;
+}
+.single .btn_red{
+    border:1px solid #f00;
+    color:#f00;
+}
+.lineView{
+    margin:4px 0;
+    font-size:1.1em;
+}
+.lineView .icon{
+    width:12px;
+    float:left;
+    margin:5px 4px 0 0 !important;
+}
+.lineView .phoneNum{
+    font-size:0.9em;
+}

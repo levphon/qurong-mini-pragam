@@ -1,0 +1,246 @@
+<view class="page">
+    <view class="page__bd">
+
+        <!-- 审批意见 开始 -->
+        <view class="weui-cells weui-cells_after-title approve_box" wx:if="{{isEdit}}">
+            审批意见：{{errTipMsg}}
+        </view>
+        <!-- 审批意见 end -->
+
+        <!-- 基本信息 开始 -->
+        <view class="weui-cells weui-cells_after-title mt_30">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">门店全称</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" id="storeName" maxlength="20" bindinput='setInputInfo' value="{{storeInfo.storeName}}" placeholder="请输入门店全称" placeholder-class="iptPlaceholder" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">门店地址</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+                        <view class="picker">
+                            {{region[0]}}{{region[1]}}{{region[2]}}
+                        </view>
+                    </picker>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">详细地址</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="text" maxlength="20" id="address" value="{{storeInfo.address}}" bindinput='setInputInfo' placeholder="请输入详细地址" placeholder-class="iptPlaceholder" />
+                </view>
+            </view>
+
+            <!-- 门店开业时间 开始 -->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">门店开业时间</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker class="weui-btn" mode="date" value="{{storeInfo.openningTime}}" readonly start="1980-01-01" end="2030-12-31" bindchange="bindDateChange">
+                        <input class="weui-input" value='{{storeInfo.openningTime}}' disabled placeholder="请选择日期" placeholder-class="iptPlaceholder"></input>
+                    </picker>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+            <!-- 门店开业时间 end -->
+
+            <!-- 主营汽车品牌 开始 -->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">主营汽车品牌</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker class="weui-btn" mode="selector" range="{{carList}}" value="{{carIndex}}" range-key="brand" bindchange="bindCarTypeChange">
+                        <input class="weui-input" value='{{carList[carIndex].brand}}' disabled placeholder="请选择汽车品牌" placeholder-class="iptPlaceholder"></input>
+                    </picker>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+            <!-- 主营汽车品牌 end -->
+
+            <!-- 月销量 开始 -->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">月销量</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="number" id="monthlySales" value="{{storeInfo.monthlySales}}" maxlength="5" bindinput='setInputInfo' placeholder="请输入月销量" placeholder-class="iptPlaceholder" />
+                </view>
+            </view>
+            <!-- 月销量 end -->
+
+            <!-- 合作金融机构1 开始 -->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">合作金融机构1</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker class="weui-btn" mode="selector" data-name='financeName1' range="{{orgList}}" value="{{financeName1Index}}" bindchange="bindChangeEvent">
+                        <input class="weui-input" value='{{storeInfo.financeName1?storeInfo.financeName1:"--"}}' disabled placeholder="请选择" placeholder-class="iptPlaceholder"></input>
+                    </picker>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+            <!-- 合作金融机构1 end -->
+
+            <!-- 合作金融机构2 开始 -->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">合作金融机构2</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker class="weui-btn" mode="selector" data-name='financeName2' range="{{orgList}}" value="{{storeInfo.financeName2Index}}" bindchange="bindChangeEvent">
+                        <input class="weui-input" value='{{storeInfo.financeName2?storeInfo.financeName2:"--"}}' disabled placeholder="请选择" placeholder-class="iptPlaceholder"></input>
+                    </picker>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+            <!-- 合作金融机构2 end -->
+
+            <!-- 合作金融机构3 开始 -->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">合作金融机构3</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker class="weui-btn" mode="selector" data-name='financeName3' range="{{orgList}}" value="{{financeName3Index}}" bindchange="bindChangeEvent">
+                        <input class="weui-input" value='{{storeInfo.financeName3?storeInfo.financeName3:"--"}}' disabled placeholder="请选择" placeholder-class="iptPlaceholder"></input>
+                    </picker>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+            <!-- 合作金融机构3 end -->
+
+            <!-- 公司人数 开始 -->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">公司人数</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker class="weui-btn" mode="selector" data-name='employeeNum' range="{{company}}" value="{{employeeNumIndex}}" bindchange="bindChangeEvent">
+                        <input class="weui-input" value='{{storeInfo.employeeNum?storeInfo.employeeNum:company[employeeNumIndex]}}' disabled placeholder="请选择公司人数" placeholder-class="iptPlaceholder"></input>
+                    </picker>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+            <!-- 公司人数 end -->
+
+            <!-- 门店负责人姓名 开始 -->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">门店负责人姓名</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type='text' id="name" maxlength='20' bindinput='setInputInfo' value="{{storeInfo.name}}" placeholder="请输入门店负责人姓名" placeholder-class="iptPlaceholder"></input>
+                </view>
+            </view>
+            <!-- 门店负责人姓名 end -->
+
+            <!-- 门店负责人身份证号 开始 -->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">门店负责人身份证号</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type='idcard' id="leaderCertCode" bindinput='setInputInfo' value='{{storeInfo.leaderCertCode}}' placeholder="请输入门店负责人身份证号" placeholder-class="iptPlaceholder"></input>
+                </view>
+            </view>
+            <!-- 门店负责人身份证号 end -->
+
+            <!-- 门店负责人手机号 开始 -->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">门店负责人手机号</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type='number' id="userPhone" bindinput='setInputInfo' value='{{storeInfo.userPhone}}' placeholder="门店负责人手机号" placeholder-class="iptPlaceholder"></input>
+                </view>
+            </view>
+            <!-- 门店负责人手机号 end -->
+
+            <!-- 验证码 开始 -->
+            <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">验证码</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type="number" maxlength="4" id="verifyCode" bindinput='setInputInfo' placeholder="请输入验证码" placeholder-class="iptPlaceholder" />
+                </view>
+                <view class="weui-cell__ft">
+                    <button size='mini' type='primary' class="yzm_button" disabled='{{isDisabled}}' bindtap='getMsgCode'>{{msgCodeText}}</button>
+                </view>
+            </view>
+            <!-- 验证码 end -->
+
+        </view>
+        <!-- 基本信息 end -->
+
+        <!-- 法人代表身份证 开始-->
+        <view class="weui-cells weui-cells_after-title mt_30">
+            <view class="weui-cell img_title">
+                <view class="weui-cell__bd">法人代表身份证</view>
+            </view>
+            <view class="img_show">
+                <view class="img_inner">
+                    <image src="{{closeIcon}}" class="img_close" data-type='legalPersonCertCodeFront' bindtap='deleteImg' wx:if="{{storeInfo.legalPersonCertCodeFront}}" mode='widthFix'></image>
+                    <image src="{{storeInfo.legalPersonCertCodeFront?storeInfo.legalPersonCertCodeFront:idCardFont}}" class="img" bindtap='chooseImg' data-type='legalPersonCertCodeFront' mode='widthFix'></image>
+                </view>
+            </view>
+            <view class="img_show">
+                <view class="img_inner">
+                    <image src="{{closeIcon}}" class="img_close" data-type='legalPersonCertCodeReverse' bindtap='deleteImg' mode='widthFix' wx:if="{{storeInfo.legalPersonCertCodeReverse}}"></image>
+                    <image src="{{storeInfo.legalPersonCertCodeReverse?storeInfo.legalPersonCertCodeReverse:idCardBack}}" class="img" bindtap='chooseImg' data-type='legalPersonCertCodeReverse' mode='widthFix'></image>
+                </view>
+            </view>
+        </view>
+        <!-- 法人身份证 end-->
+
+        <!-- 门店照片 开始-->
+        <view class="weui-cells weui-cells_after-title mt_30">
+            <view class="weui-cell img_title">
+                <view class="weui-cell__bd">门店照片</view>
+            </view>
+            <view class="img_show">
+                <view class="img_inner">
+                    <image src="{{closeIcon}}" class="img_close" data-type='storeImagePath' bindtap='deleteImg' mode='widthFix' wx:if="{{storeInfo.storeImagePath}}"></image>
+                    <image src="{{storeInfo.storeImagePath?storeInfo.storeImagePath:storeFront}}" class="img" bindtap='chooseImg' data-type='storeImagePath' mode='widthFix'></image>
+                </view>
+            </view>
+        </view>
+        <!-- 门店照片 end-->
+
+        <!-- 营业执照 开始-->
+        <view class="weui-cells weui-cells_after-title mt_30 mb_100">
+            <view class="weui-cell img_title">
+                <view class="weui-cell__bd">营业执照</view>
+            </view>
+            <view class="img_show">
+                <view class="img_inner">
+                    <image src="{{closeIcon}}" class="img_close" data-type='businessLicenseImg' bindtap='deleteImg' wx:if="{{storeInfo.businessLicenseImg}}" mode='widthFix'></image>
+                    <image src="{{storeInfo.businessLicenseImg?storeInfo.businessLicenseImg:storeBack}}" class="img" bindtap='chooseImg' data-type='businessLicenseImg' mode='widthFix'></image>
+                </view>
+            </view>
+        </view>
+        <!-- 营业执照 end-->
+
+
+        <!--提交审核 开始 -->
+        <view class="btn-area">
+            <button class="loginButton" type='primary' bindtap="checkInfo">{{buttonText}}</button>
+        </view>
+        <!--提交审核 end -->
+
+    </view>
+
+
+
+</view>

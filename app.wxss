@@ -1,0 +1,60 @@
+/**app.wxss**/
+@import 'weui.wxss';
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 200rpx 0;
+    box-sizing: border-box;
+}
+
+.btn-area {
+    padding: 10px;
+}
+
+.btn-area .loginButton {
+    background: #f08519;
+}
+
+.mt_30 {
+    margin-top: 30px;
+}
+
+.mb_30 {
+    margin-bottom: 30px;
+}
+
+.mb_100 {
+    margin-bottom: 100px;
+}
+
+.weui-cell {
+    font-size: 14px;
+    /*padding:10px 15px;*/
+}
+
+.weui-cell .weui-label {
+    width: 120px;
+}
+
+.approve_box {
+    padding: 10px 0;
+    text-align: center;
+    color: #f00;
+    font-size: 14px;
+}
+
+.weui-cell .wx_long_label {
+    width: 160px;
+}
+
+.weui-cell_input {
+    padding: 8px 15px;
+}
+
+.wx_center {
+    text-align: center !important;
+}
